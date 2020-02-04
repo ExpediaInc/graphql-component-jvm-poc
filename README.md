@@ -37,7 +37,7 @@ http://localhost:8080/graphiql
 ```
 to test the schemas in a browser.
 
-###Implementing a component 
+### Implementing a component 
 
 1. Create new schema files in the resources file
 2. Create a component class extending GraphQLComponent
@@ -48,7 +48,7 @@ to test the schemas in a browser.
 7. Call the schema() method on the component in the handler to create an executable schema for the 
 server to run
 
-###Missing pieces
+### Missing pieces
 Since this was a time boxed exercise not all features of GraphQL Component are implemented including
 1. Conflict resolution: Conflicting top level objects will not be merged automatically in this version.
 This will need to be done manually until a better schema parser is written.
