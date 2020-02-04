@@ -59,5 +59,5 @@ Executing JavaScript resolvers is left out for now.
 4. Compiling Kotlin Component to node module:  It is possible to write a component fully
 in Kotin and have that compiled to a JavaScript node module to run on a JavaScript based server. 
  This concept was exercised in another POC and is currently omitted from this project.
- 
+5. Federation Support:  Currently this feature is turned off until further development 
 Further development of this project is on pause until adoption use cases are found
