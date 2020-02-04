@@ -1,0 +1,4 @@
+type PartnerInquiry {
+    id: ID!
+    partner: Partner
+}

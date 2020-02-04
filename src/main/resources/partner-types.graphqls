@@ -1,0 +1,52 @@
+# A Partner, The business entity for grouping of users that express a reationship to a set of products (resources) being sold
+# in the EG system.  Partners can be made up of a single user or thousdands of users with complex releationships to each resource
+type Partner {
+    id: ID!
+    name: String!
+    type: PartnerType!
+    # id of the legacy parnerships
+    internalId: String
+}
+
+type PartnerConnection {
+    totalCount: Int!
+    edges: [PartnerEdge!]!
+    pageInfo: PageInfo!
+
+}
+
+type PartnerEdge {
+    node: Partner!
+    cursor: String
+}
+
+type PageInfo{
+    endCursor: String
+    hasNextPage: Boolean
+}
+
+# PartnerType classification of a Partners nature
+enum PartnerType {
+    # FRBO For Rent By Owner
+    FRBO
+    # PPM or Platform Property Manager - a property manager with a relatively small number of listings.
+    PPM
+    # IPM or Integrated Property Manager - a software-integrated property manager that uses apis
+    # to manage their bookings and listings on the EG platform
+    IPM
+}
+
+# A Portoflio, a grouping of resources to simplify the management of resources with the same configurations, portfolios can
+# be assoicated to 1 or more Partners
+type Portfolio {
+    id: ID!
+    # optional paginated list of resources for this portfolio
+    resources(limit: Int, offset: Int): [Resource]!
+}
+
+# A Resource, an abstraction of a product. This item could represent a property, flight, car rental or other sellable products
+type Resource {
+    id: ID!
+    name: String!
+    type: String!
+}

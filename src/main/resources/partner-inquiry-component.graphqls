@@ -1,0 +1,8 @@
+type Query {
+    # get a single partner by id
+    partnerinquiry(id: ID!): PartnerInquiry
+    # get a single partner by id
+    partner(id: ID!): Partner
+    # get a paginated list of partners
+    partners(first: Int, after: Int): PartnerConnection
+}

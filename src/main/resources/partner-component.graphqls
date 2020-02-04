@@ -1,0 +1,6 @@
+
+
+type Mutation {
+    # creates a new partner
+    createPartner(name: String, type: PartnerType, internalId: String) : Partner
+}
