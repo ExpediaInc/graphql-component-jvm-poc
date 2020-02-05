@@ -9,8 +9,6 @@ import graphql.schema.GraphQLSchema
 
 open class GraphQLComponent: Component {
 
-    private lateinit var schema : GraphQLSchema
-
     open lateinit var types : Array<String>
 
     open lateinit var resolvers : Array<GraphQLResolver<*>>
@@ -24,11 +22,10 @@ open class GraphQLComponent: Component {
             this.types += import.types
             this.resolvers += import.resolvers
         }
-        this.schema = SchemaParser.newParser()
+        return SchemaParser.newParser()
                 .schemaString(getSchemaFiles().joinToString(separator = " "))  //could add parser here to do excludes feature / better merging
                 .resolvers(*this.resolvers)
                 .build().makeExecutableSchema()
-        return this.schema
     }
 
     private fun getSchemaFiles() :MutableList<String> {
